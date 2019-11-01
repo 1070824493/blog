@@ -6,15 +6,15 @@
 
 
 <html class="theme-next pisces use-motion">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -29,7 +29,7 @@
 
   
   
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -63,43 +63,41 @@
 
 
 
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="Hexo, NexT" />
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css">
 
 
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1">
 
 
 
 
 
 
-<meta name="description" content="为什么会有这篇文章？推送通知苹果几乎每年都改，但都是缝缝补补的功效，直到iOS10的出现，可能苹果觉得之前的代码架构已经无法满足他们的功能需求了，于是也就出现了代码重构。多版本的修改多少有点让人混淆，而此文仅在对iOS7-10通知有一定了解的基础上进行流程总结。Demo地址。
-iOS推送通知各版本到底改了些啥？在回答之前，我先上一段代码：看看iOS10出来之后，兼容到iOS7最一般的推送通知代码该">
+<meta name="description" content="为什么会有这篇文章？推送通知苹果几乎每年都改，但都是缝缝补补的功效，直到iOS10的出现，可能苹果觉得之前的代码架构已经无法满足他们的功能需求了，于是也就出现了代码重构。多版本的修改多少有点让人混淆，而此文仅在对iOS7-10通知有一定了解的基础上进行流程总结。Demo地址。 iOS推送通知各版本到底改了些啥？在回答之前，我先上一段代码：看看iOS10出来之后，兼容到iOS7最一般的推送通知代码该">
 <meta property="og:type" content="article">
 <meta property="og:title" content="理解并总结iOS7-10推送通知流程">
 <meta property="og:url" content="http://yoursite.com/2017/02/25/理解并总结iOS7-10推送通知流程/index.html">
 <meta property="og:site_name" content="唐义的记录博客">
-<meta property="og:description" content="为什么会有这篇文章？推送通知苹果几乎每年都改，但都是缝缝补补的功效，直到iOS10的出现，可能苹果觉得之前的代码架构已经无法满足他们的功能需求了，于是也就出现了代码重构。多版本的修改多少有点让人混淆，而此文仅在对iOS7-10通知有一定了解的基础上进行流程总结。Demo地址。
-iOS推送通知各版本到底改了些啥？在回答之前，我先上一段代码：看看iOS10出来之后，兼容到iOS7最一般的推送通知代码该">
+<meta property="og:description" content="为什么会有这篇文章？推送通知苹果几乎每年都改，但都是缝缝补补的功效，直到iOS10的出现，可能苹果觉得之前的代码架构已经无法满足他们的功能需求了，于是也就出现了代码重构。多版本的修改多少有点让人混淆，而此文仅在对iOS7-10通知有一定了解的基础上进行流程总结。Demo地址。 iOS推送通知各版本到底改了些啥？在回答之前，我先上一段代码：看看iOS10出来之后，兼容到iOS7最一般的推送通知代码该">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1723686-100c6d5d505facf1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1723686-25a50d5a5ccb94da.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1723686-32d409a21e677a44.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-03-03T01:15:29.000Z">
+<meta property="og:updated_time" content="2017-03-02T12:53:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="理解并总结iOS7-10推送通知流程">
-<meta name="twitter:description" content="为什么会有这篇文章？推送通知苹果几乎每年都改，但都是缝缝补补的功效，直到iOS10的出现，可能苹果觉得之前的代码架构已经无法满足他们的功能需求了，于是也就出现了代码重构。多版本的修改多少有点让人混淆，而此文仅在对iOS7-10通知有一定了解的基础上进行流程总结。Demo地址。
-iOS推送通知各版本到底改了些啥？在回答之前，我先上一段代码：看看iOS10出来之后，兼容到iOS7最一般的推送通知代码该">
+<meta name="twitter:description" content="为什么会有这篇文章？推送通知苹果几乎每年都改，但都是缝缝补补的功效，直到iOS10的出现，可能苹果觉得之前的代码架构已经无法满足他们的功能需求了，于是也就出现了代码重构。多版本的修改多少有点让人混淆，而此文仅在对iOS7-10通知有一定了解的基础上进行流程总结。Demo地址。 iOS推送通知各版本到底改了些啥？在回答之前，我先上一段代码：看看iOS10出来之后，兼容到iOS7最一般的推送通知代码该">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1723686-100c6d5d505facf1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -121,7 +119,7 @@ iOS推送通知各版本到底改了些啥？在回答之前，我先上一段�
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/02/25/理解并总结iOS7-10推送通知流程/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/02/25/理解并总结iOS7-10推送通知流程/">
 
   <title> 理解并总结iOS7-10推送通知流程 | 唐义的记录博客 </title>
 </head>
@@ -171,7 +169,7 @@ iOS推送通知各版本到底改了些啥？在回答之前，我先上一段�
   
 
   <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
+    <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
       <span class="site-title">唐义的记录博客</span>
       <span class="logo-line-after"><i></i></span>
@@ -198,7 +196,7 @@ iOS推送通知各版本到底改了些啥？在回答之前，我先上一段�
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -208,7 +206,7 @@ iOS推送通知各版本到底改了些啥？在回答之前，我先上一段�
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -218,7 +216,7 @@ iOS推送通知各版本到底改了些啥？在回答之前，我先上一段�
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -280,7 +278,7 @@ iOS推送通知各版本到底改了些啥？在回答之前，我先上一段�
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
               &nbsp; | &nbsp;
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -328,11 +326,11 @@ iOS推送通知各版本到底改了些啥？在回答之前，我先上一段�
       
 
       
-        <script src="/assets/js/APlayer.min.js"> </script><h3 id="为什么会有这篇文章？"><a href="#为什么会有这篇文章？" class="headerlink" title="为什么会有这篇文章？"></a>为什么会有这篇文章？</h3><p>推送通知苹果几乎每年都改，但都是缝缝补补的功效，直到iOS10的出现，可能苹果觉得之前的代码架构已经无法满足他们的功能需求了，于是也就出现了代码重构。多版本的修改多少有点让人混淆，而此文仅在对iOS7-10通知有一定了解的基础上进行流程总结。<a href="https://github.com/1070824493/NotificationDemo" target="_blank" rel="external">Demo地址</a>。</p>
+        <script src="/assets/js/APlayer.min.js"> </script><h3 id="为什么会有这篇文章？"><a href="#为什么会有这篇文章？" class="headerlink" title="为什么会有这篇文章？"></a>为什么会有这篇文章？</h3><p>推送通知苹果几乎每年都改，但都是缝缝补补的功效，直到iOS10的出现，可能苹果觉得之前的代码架构已经无法满足他们的功能需求了，于是也就出现了代码重构。多版本的修改多少有点让人混淆，而此文仅在对iOS7-10通知有一定了解的基础上进行流程总结。<a href="https://github.com/1070824493/NotificationDemo" target="_blank" rel="noopener">Demo地址</a>。</p>
 <h3 id="iOS推送通知各版本到底改了些啥？"><a href="#iOS推送通知各版本到底改了些啥？" class="headerlink" title="iOS推送通知各版本到底改了些啥？"></a>iOS推送通知各版本到底改了些啥？</h3><p>在回答之前，我先上一段代码：看看iOS10出来之后，兼容到iOS7最一般的推送通知代码该如何写。</p>
 <a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#define IS_IOS_10 [[UIDevice currentDevice].systemVersion floatValue] &gt;= 10.0</div><div class="line"></div><div class="line">#define IS_IOS_9 [[UIDevice currentDevice].systemVersion floatValue] &gt;= 9.0</div><div class="line"></div><div class="line">#define IS_IOS_8 [[UIDevice currentDevice].systemVersion floatValue] &gt;= 8.0</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">- (void)registerNotification&#123;</div><div class="line">    if (IS_IOS_10) &#123;</div><div class="line">        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];</div><div class="line">        [center requestAuthorizationWithOptions:(UNAuthorizationOptionBadge | UNAuthorizationOptionSound | UNAuthorizationOptionAlert) completionHandler:^(BOOL granted, NSError * _Nullable error) &#123;</div><div class="line">            if (granted) &#123;</div><div class="line">                [[UIApplication sharedApplication] registerForRemoteNotifications];</div><div class="line">            &#125;</div><div class="line">        &#125;];</div><div class="line"></div><div class="line">        //设置代理</div><div class="line">        [UNUserNotificationCenter currentNotificationCenter].delegate = self;</div><div class="line">    &#125;</div><div class="line">    else if (IS_IOS_8)&#123;</div><div class="line">        //ios8注册通知</div><div class="line">        UIUserNotificationType type = UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound;</div><div class="line">        UIUserNotificationSettings *setting = [UIUserNotificationSettings settingsForTypes:type categories:nil];</div><div class="line">        [[UIApplication sharedApplication]registerUserNotificationSettings:setting];</div><div class="line">        [[UIApplication sharedApplication] registerForRemoteNotifications];</div><div class="line">    &#125;else&#123;</div><div class="line">        //ios7及之前注册通知</div><div class="line">        UIRemoteNotificationType type = UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound;</div><div class="line">        [[UIApplication sharedApplication]registerForRemoteNotificationTypes:type];</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#define IS_IOS_10 [[UIDevice currentDevice].systemVersion floatValue] &gt;= 10.0</span><br><span class="line"></span><br><span class="line">#define IS_IOS_9 [[UIDevice currentDevice].systemVersion floatValue] &gt;= 9.0</span><br><span class="line"></span><br><span class="line">#define IS_IOS_8 [[UIDevice currentDevice].systemVersion floatValue] &gt;= 8.0</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">- (void)registerNotification&#123;</span><br><span class="line">    if (IS_IOS_10) &#123;</span><br><span class="line">        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];</span><br><span class="line">        [center requestAuthorizationWithOptions:(UNAuthorizationOptionBadge | UNAuthorizationOptionSound | UNAuthorizationOptionAlert) completionHandler:^(BOOL granted, NSError * _Nullable error) &#123;</span><br><span class="line">            if (granted) &#123;</span><br><span class="line">                [[UIApplication sharedApplication] registerForRemoteNotifications];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;];</span><br><span class="line"></span><br><span class="line">        //设置代理</span><br><span class="line">        [UNUserNotificationCenter currentNotificationCenter].delegate = self;</span><br><span class="line">    &#125;</span><br><span class="line">    else if (IS_IOS_8)&#123;</span><br><span class="line">        //ios8注册通知</span><br><span class="line">        UIUserNotificationType type = UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound;</span><br><span class="line">        UIUserNotificationSettings *setting = [UIUserNotificationSettings settingsForTypes:type categories:nil];</span><br><span class="line">        [[UIApplication sharedApplication]registerUserNotificationSettings:setting];</span><br><span class="line">        [[UIApplication sharedApplication] registerForRemoteNotifications];</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        //ios7及之前注册通知</span><br><span class="line">        UIRemoteNotificationType type = UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound;</span><br><span class="line">        [[UIApplication sharedApplication]registerForRemoteNotificationTypes:type];</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>随着版本的更替，远程通知和本地通知两个概念是越来越一体了，到iOS10已经无法从方法名直接区分远程通知还是本地通知了，而是通过<code>UNNotificationTrigger</code>这个类的子类来区分。需求决定功能，再怎么一体，远程和本地毕竟两个不同的需求，只是代码规范不同了而已。回到前面，先看看通知各版本到底都改了些啥？</p>
 <blockquote>
 <p>太老的版本我也就不列了，截至2017年1月初，iOS9以下（不包括iOS9）的系统覆盖率为6%，应用撑死兼容到iOS7，iOS7以下的那些覆盖率，基本可以忽略。</p>
@@ -359,25 +357,27 @@ iOS推送通知各版本到底改了些啥？在回答之前，我先上一段�
 </ul>
 <blockquote>
 <p>值得注意的是，程序后台状态下，代理方法都是在用户点击通知后才会执行，收到通知点击应用图标启动是不会走代理方法的。</p>
+</blockquote>
+<blockquote>
 <p>程序杀死状态下启动应用只会触发<code>- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions;</code>方法。</p>
 </blockquote>
 <h4 id="注册了category的可操作本地通知"><a href="#注册了category的可操作本地通知" class="headerlink" title="注册了category的可操作本地通知"></a>注册了category的可操作本地通知</h4><p>先上个通知具体样式图，方便理解。具体代码直接看Demo。</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1723686-25a50d5a5ccb94da.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="iOS8-9可操作通知"><br>这是iOS8-9上的通知截图，iOS8-9上可操作通知共分为两种，即图中的按钮1和按钮2，点击按钮1会激活应用程序到前台，按钮2后台触发，不会激活应用。点击这两个按钮都会走如下代理方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">//本地通知category属性使用,iOS8引入，点击按钮触发。</div><div class="line">- (void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forLocalNotification:(UILocalNotification *)notification completionHandler:(void (^)())completionHandler&#123;</div><div class="line">    //业务逻辑代码写在这。</div><div class="line">    completionHandler();</div><div class="line">&#125;</div><div class="line">//本地通知category属性使用，iOS9引入，点击按钮或输入文字触发（当实现了此代理方法时，上面的方法失效）。</div><div class="line">- (void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forLocalNotification:(UILocalNotification *)notification withResponseInfo:(NSDictionary *)responseInfo completionHandler:(void (^)())completionHandler&#123;</div><div class="line"></div><div class="line">    NSLog(@&quot;用户输入的信息为:%@&quot;,[responseInfo objectForKey:UIUserNotificationActionResponseTypedTextKey]);</div><div class="line">    //业务逻辑代码写在这。</div><div class="line">    completionHandler();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//本地通知category属性使用,iOS8引入，点击按钮触发。</span><br><span class="line">- (void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forLocalNotification:(UILocalNotification *)notification completionHandler:(void (^)())completionHandler&#123;</span><br><span class="line">    //业务逻辑代码写在这。</span><br><span class="line">    completionHandler();</span><br><span class="line">&#125;</span><br><span class="line">//本地通知category属性使用，iOS9引入，点击按钮或输入文字触发（当实现了此代理方法时，上面的方法失效）。</span><br><span class="line">- (void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forLocalNotification:(UILocalNotification *)notification withResponseInfo:(NSDictionary *)responseInfo completionHandler:(void (^)())completionHandler&#123;</span><br><span class="line"></span><br><span class="line">    NSLog(@&quot;用户输入的信息为:%@&quot;,[responseInfo objectForKey:UIUserNotificationActionResponseTypedTextKey]);</span><br><span class="line">    //业务逻辑代码写在这。</span><br><span class="line">    completionHandler();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>下面是iOS10的通知截图。<br><img src="http://upload-images.jianshu.io/upload_images/1723686-32d409a21e677a44.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="iOS10可操作通知"></p>
 <p>iOS10上可操作通知共分为三种：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">UNNotificationActionOptionForeground //点击通知会激活应用到前台，需要解锁。</div><div class="line"></div><div class="line">UNNotificationActionOptionAuthenticationRequired //点击通知需要解锁但不会激活应用到前台。</div><div class="line"></div><div class="line">UNNotificationActionOptionDestructive //显示为红色字体，不需要解锁。</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">UNNotificationActionOptionForeground //点击通知会激活应用到前台，需要解锁。</span><br><span class="line"></span><br><span class="line">UNNotificationActionOptionAuthenticationRequired //点击通知需要解锁但不会激活应用到前台。</span><br><span class="line"></span><br><span class="line">UNNotificationActionOptionDestructive //显示为红色字体，不需要解锁。</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>iOS10<strong>所有的</strong>通知，即远程推送，本地推送，都只会触发下面两个方法。而区分远程还是本地通知，就是前面提到的<code>UNNotificationTrigger</code>的子类，当<code>UNNotificationRequest</code>的<code>trigger</code>为<code>UNPushNotificationTrigger</code>时，说明此通知为远程通知，否则为本地通知。下面为代理方法：</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">//MARK: iOS10通知代理方法,程序在前台时收到通知调用</div><div class="line">- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler&#123;</div><div class="line">    </div><div class="line">    UNNotificationRequest *request = notification.request;</div><div class="line">    NSDictionary *userInfo = request.content.userInfo;</div><div class="line">    </div><div class="line">    if ([request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) &#123;</div><div class="line">        NSLog(@&quot;收到了一个远程推送:%@&quot;,userInfo);</div><div class="line">    &#125;</div><div class="line">    else&#123;</div><div class="line">        NSLog(@&quot;收到了一个本地推送:%@&quot;,userInfo);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    //此方法回调,设置程序前台是,banner提示框的显示选项,</div><div class="line">    completionHandler(UNNotificationPresentationOptionBadge|UNNotificationPresentationOptionSound|UNNotificationPresentationOptionAlert);</div><div class="line">&#125;</div><div class="line"></div><div class="line">//MARK: iOS10通知代理方法，通知前后台点击时会触发。</div><div class="line">- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler&#123;</div><div class="line">    NSDictionary *userInfo = response.notification.request.content.userInfo;</div><div class="line">    NSLog(@&quot;userInfo:%@&quot;,userInfo);</div><div class="line">    </div><div class="line">    completionHandler();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">//MARK: iOS10通知代理方法,程序在前台时收到通知调用</span><br><span class="line">- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler&#123;</span><br><span class="line">    </span><br><span class="line">    UNNotificationRequest *request = notification.request;</span><br><span class="line">    NSDictionary *userInfo = request.content.userInfo;</span><br><span class="line">    </span><br><span class="line">    if ([request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) &#123;</span><br><span class="line">        NSLog(@&quot;收到了一个远程推送:%@&quot;,userInfo);</span><br><span class="line">    &#125;</span><br><span class="line">    else&#123;</span><br><span class="line">        NSLog(@&quot;收到了一个本地推送:%@&quot;,userInfo);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    //此方法回调,设置程序前台是,banner提示框的显示选项,</span><br><span class="line">    completionHandler(UNNotificationPresentationOptionBadge|UNNotificationPresentationOptionSound|UNNotificationPresentationOptionAlert);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//MARK: iOS10通知代理方法，通知前后台点击时会触发。</span><br><span class="line">- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler&#123;</span><br><span class="line">    NSDictionary *userInfo = response.notification.request.content.userInfo;</span><br><span class="line">    NSLog(@&quot;userInfo:%@&quot;,userInfo);</span><br><span class="line">    </span><br><span class="line">    completionHandler();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>远程通知和本地通知之所以能统一规范，就是因为其原理类似，唯一的区别在于远程通知需要获取用户的token，通过苹果的APNS将通知发送给对应用户，而具体通知的内容则由后台配置的那个aps字典决定了。</p>
 </blockquote>
-<h4 id="普通远程通知"><a href="#普通远程通知" class="headerlink" title="普通远程通知"></a>普通远程通知</h4><p>远程通知测试的软件我用的<a href="https://github.com/KnuffApp/Knuff" target="_blank" rel="external">这个</a>，选择好证书，输入从<code>- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken</code>方法中获取的<code>deviceToken</code>，等连接完毕就可以推送一般的远程的通知了。下面是iOS7-9远程通知相关的代理方法（iOS10所有通知只走前面提及的两个方法，不再赘述）。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> 已经收到远程推送消息</div><div class="line"> @param userInfo 收到的userInfo信息</div><div class="line"> */</div><div class="line">- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo&#123;</div><div class="line">    NSLog(@&quot;userInfo:%@&quot;,userInfo);</div><div class="line">    if (application.applicationState == UIApplicationStateActive) &#123;</div><div class="line">        NSLog(@&quot;程序运行中收到通知&quot;);</div><div class="line">    &#125;else&#123;</div><div class="line">        NSLog(@&quot;程序不活跃中收到通知&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">/**</div><div class="line"> 后台模式收到的远程推送信息，需要开启后台模式的远程推送，实现了此方法，上面的方法就失效。</div><div class="line"> */</div><div class="line">- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler&#123;</div><div class="line">    NSLog(@&quot;userInfo:%@&quot;,userInfo);</div><div class="line">    if (application.applicationState == UIApplicationStateActive) &#123;</div><div class="line">        NSLog(@&quot;程序运行中收到通知&quot;);</div><div class="line">    &#125;else&#123;</div><div class="line">        NSLog(@&quot;程序不活跃中收到通知&quot;);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    completionHandler(UIBackgroundFetchResultNewData);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="普通远程通知"><a href="#普通远程通知" class="headerlink" title="普通远程通知"></a>普通远程通知</h4><p>远程通知测试的软件我用的<a href="https://github.com/KnuffApp/Knuff" target="_blank" rel="noopener">这个</a>，选择好证书，输入从<code>- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken</code>方法中获取的<code>deviceToken</code>，等连接完毕就可以推送一般的远程的通知了。下面是iOS7-9远程通知相关的代理方法（iOS10所有通知只走前面提及的两个方法，不再赘述）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> 已经收到远程推送消息</span><br><span class="line"> @param userInfo 收到的userInfo信息</span><br><span class="line"> */</span><br><span class="line">- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo&#123;</span><br><span class="line">    NSLog(@&quot;userInfo:%@&quot;,userInfo);</span><br><span class="line">    if (application.applicationState == UIApplicationStateActive) &#123;</span><br><span class="line">        NSLog(@&quot;程序运行中收到通知&quot;);</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        NSLog(@&quot;程序不活跃中收到通知&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> 后台模式收到的远程推送信息，需要开启后台模式的远程推送，实现了此方法，上面的方法就失效。</span><br><span class="line"> */</span><br><span class="line">- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler&#123;</span><br><span class="line">    NSLog(@&quot;userInfo:%@&quot;,userInfo);</span><br><span class="line">    if (application.applicationState == UIApplicationStateActive) &#123;</span><br><span class="line">        NSLog(@&quot;程序运行中收到通知&quot;);</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        NSLog(@&quot;程序不活跃中收到通知&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    completionHandler(UIBackgroundFetchResultNewData);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>远程推送需要后台配置title等参数，也就是在本地通知中设置的那些什么<code>alertTitle，alertBody</code>啥子的。基本格式如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;aps&quot; : &#123;</div><div class="line">    &quot;alert&quot; : &#123;</div><div class="line">      &quot;title&quot; : &quot;主标题&quot;,</div><div class="line">      &quot;subtitle&quot; : &quot;子标题&quot;,</div><div class="line">      &quot;body&quot; : &quot;通知内容&quot;</div><div class="line">    &#125;,</div><div class="line">    &quot;badge&quot; : 2,</div><div class="line">    &quot;sound&quot; : &quot;alert.wav&quot;</div><div class="line">  &#125;,</div><div class="line">  &quot;custom&quot; : &quot;something&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;aps&quot; : &#123;</span><br><span class="line">    &quot;alert&quot; : &#123;</span><br><span class="line">      &quot;title&quot; : &quot;主标题&quot;,</span><br><span class="line">      &quot;subtitle&quot; : &quot;子标题&quot;,</span><br><span class="line">      &quot;body&quot; : &quot;通知内容&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;badge&quot; : 2,</span><br><span class="line">    &quot;sound&quot; : &quot;alert.wav&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;custom&quot; : &quot;something&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <ul>
 <li>其中aps为固定对象，后台需要传输自己的参数可以自行添加与aps并列的键值对。</li>
@@ -387,8 +387,9 @@ iOS推送通知各版本到底改了些啥？在回答之前，我先上一段�
 </ul>
 </blockquote>
 <h4 id="高级远程通知"><a href="#高级远程通知" class="headerlink" title="高级远程通知"></a>高级远程通知</h4><p>所谓高级，无非就是iOS10以下的可操作通知、iOS10中通知的增删改，以及<code>UNNotificationServiceExtension</code>和<code>UNNotificationContentExtension</code>这两个通知扩展了。由于是远程通知，这里仅附上测试aps格式，方便测试。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;aps&quot; : &#123;</div><div class="line">    &quot;alert&quot; : &#123;</div><div class="line">      &quot;title&quot; : &quot;这是title&quot;,</div><div class="line">      &quot;subtitle&quot; : &quot;这是subtitle&quot;,</div><div class="line">      &quot;body&quot; : &quot;这是body&quot;		</div><div class="line">    &#125;,</div><div class="line">    &quot;mutable-content&quot; : &quot;1&quot;,			</div><div class="line">    &quot;category&quot; : &quot;myNotificationCategory&quot;				</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;aps&quot; : &#123;</span><br><span class="line">    &quot;alert&quot; : &#123;</span><br><span class="line">      &quot;title&quot; : &quot;这是title&quot;,</span><br><span class="line">      &quot;subtitle&quot; : &quot;这是subtitle&quot;,</span><br><span class="line">      &quot;body&quot; : &quot;这是body&quot;		</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;mutable-content&quot; : &quot;1&quot;,			</span><br><span class="line">    &quot;category&quot; : &quot;myNotificationCategory&quot;				</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
+</blockquote>
 <ul>
 <li>此aps可以用来测试上述所有高级远程通知。</li>
 <li><code>category</code>中的值必须与测试可操作通知时的<code>category</code>值一样。</li>
@@ -396,7 +397,6 @@ iOS推送通知各版本到底改了些啥？在回答之前，我先上一段�
 <li>凡是需要对通知内容做修改的都要加上<code>mutable-content</code>字段，<code>UNNotificationServiceExtension</code>中需要使用。例如下载通知中传来的图片或视频，先下载后再通知。</li>
 <li>通知的增删改都是根据<code>request</code>中的<code>identifier</code>进行查找和区分的。</li>
 </ul>
-</blockquote>
 <p>通知其实也就这些，只是改的多，显得乱而已。理解了通知的流程与原理，处理这一模块的问题也就能得心应手。</p>
 
       
@@ -455,8 +455,7 @@ iOS推送通知各版本到底改了些啥？在回答之前，我先上一段�
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/02/25/理解并总结iOS7-10推送通知流程/"
-           data-title="理解并总结iOS7-10推送通知流程" data-url="http://yoursite.com/2017/02/25/理解并总结iOS7-10推送通知流程/">
+      <div class="ds-thread" data-thread-key="2017/02/25/理解并总结iOS7-10推送通知流程/" data-title="理解并总结iOS7-10推送通知流程" data-url="http://yoursite.com/2017/02/25/理解并总结iOS7-10推送通知流程/">
       </div>
     
   </div>
@@ -481,7 +480,7 @@ iOS推送通知各版本到底改了些啥？在回答之前，我先上一段�
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -493,16 +492,14 @@ iOS推送通知各版本到底改了些啥？在回答之前，我先上一段�
 
       <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.png"
-               alt="唐义" />
+          <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="唐义">
           <p class="site-author-name" itemprop="name">唐义</p>
           <p class="site-description motion-element" itemprop="description">一个喜欢文字的理工男，一个专注编程的程序员。</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">11</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -562,10 +559,10 @@ iOS推送通知各版本到底改了些啥？在回答之前，我先上一段�
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

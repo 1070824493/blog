@@ -6,15 +6,15 @@
 
 
 <html class="theme-next pisces use-motion">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -29,7 +29,7 @@
 
   
   
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -63,41 +63,39 @@
 
 
 
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="Hexo, NexT" />
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css">
 
 
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1">
 
 
 
 
 
 
-<meta name="description" content="谨以此文总结我站在iOS开发者角度对于以上关键词的形象理解，至于底层抽象的概念，别人用啥TCP/IP详解：卷一、卷二、卷三都讲不清楚，我也懒得浪费时间。前人栽树，后人乘凉，一个道理。
-一、这一大堆关键词之间到底有啥区别？有名字就有定义，理解的前提从来都是对定义有所了解。就好比现在让你形容一下梯形的定义，如果你不知道定义，你就可能把平行四边形当做特殊的梯形处理，也就有可能把TCP和Socket搞混，">
+<meta name="description" content="谨以此文总结我站在iOS开发者角度对于以上关键词的形象理解，至于底层抽象的概念，别人用啥TCP/IP详解：卷一、卷二、卷三都讲不清楚，我也懒得浪费时间。前人栽树，后人乘凉，一个道理。 一、这一大堆关键词之间到底有啥区别？有名字就有定义，理解的前提从来都是对定义有所了解。就好比现在让你形容一下梯形的定义，如果你不知道定义，你就可能把平行四边形当做特殊的梯形处理，也就有可能把TCP和Socket搞混，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="1小时教你理解HTTP，TCP，UDP，Socket，WebSocket">
 <meta property="og:url" content="http://yoursite.com/2016/12/22/1小时教你理解HTTP，TCP，UDP，Socket，WebSocket/index.html">
 <meta property="og:site_name" content="唐义的记录博客">
-<meta property="og:description" content="谨以此文总结我站在iOS开发者角度对于以上关键词的形象理解，至于底层抽象的概念，别人用啥TCP/IP详解：卷一、卷二、卷三都讲不清楚，我也懒得浪费时间。前人栽树，后人乘凉，一个道理。
-一、这一大堆关键词之间到底有啥区别？有名字就有定义，理解的前提从来都是对定义有所了解。就好比现在让你形容一下梯形的定义，如果你不知道定义，你就可能把平行四边形当做特殊的梯形处理，也就有可能把TCP和Socket搞混，">
+<meta property="og:description" content="谨以此文总结我站在iOS开发者角度对于以上关键词的形象理解，至于底层抽象的概念，别人用啥TCP/IP详解：卷一、卷二、卷三都讲不清楚，我也懒得浪费时间。前人栽树，后人乘凉，一个道理。 一、这一大堆关键词之间到底有啥区别？有名字就有定义，理解的前提从来都是对定义有所了解。就好比现在让你形容一下梯形的定义，如果你不知道定义，你就可能把平行四边形当做特殊的梯形处理，也就有可能把TCP和Socket搞混，">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1723686-94d1d409d7d6746d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-03-03T01:15:29.000Z">
+<meta property="og:updated_time" content="2017-03-02T12:53:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="1小时教你理解HTTP，TCP，UDP，Socket，WebSocket">
-<meta name="twitter:description" content="谨以此文总结我站在iOS开发者角度对于以上关键词的形象理解，至于底层抽象的概念，别人用啥TCP/IP详解：卷一、卷二、卷三都讲不清楚，我也懒得浪费时间。前人栽树，后人乘凉，一个道理。
-一、这一大堆关键词之间到底有啥区别？有名字就有定义，理解的前提从来都是对定义有所了解。就好比现在让你形容一下梯形的定义，如果你不知道定义，你就可能把平行四边形当做特殊的梯形处理，也就有可能把TCP和Socket搞混，">
+<meta name="twitter:description" content="谨以此文总结我站在iOS开发者角度对于以上关键词的形象理解，至于底层抽象的概念，别人用啥TCP/IP详解：卷一、卷二、卷三都讲不清楚，我也懒得浪费时间。前人栽树，后人乘凉，一个道理。 一、这一大堆关键词之间到底有啥区别？有名字就有定义，理解的前提从来都是对定义有所了解。就好比现在让你形容一下梯形的定义，如果你不知道定义，你就可能把平行四边形当做特殊的梯形处理，也就有可能把TCP和Socket搞混，">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1723686-94d1d409d7d6746d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -119,7 +117,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/12/22/1小时教你理解HTTP，TCP，UDP，Socket，WebSocket/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/12/22/1小时教你理解HTTP，TCP，UDP，Socket，WebSocket/">
 
   <title> 1小时教你理解HTTP，TCP，UDP，Socket，WebSocket | 唐义的记录博客 </title>
 </head>
@@ -169,7 +167,7 @@
   
 
   <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
+    <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
       <span class="site-title">唐义的记录博客</span>
       <span class="logo-line-after"><i></i></span>
@@ -196,7 +194,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -206,7 +204,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -216,7 +214,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -278,7 +276,7 @@
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
               &nbsp; | &nbsp;
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -436,16 +434,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/14/那些百听不厌的共鸣/" rel="next" title="那些百听不厌的共鸣 | 歌单分享">
-                <i class="fa fa-chevron-left"></i> 那些百听不厌的共鸣 | 歌单分享
+              <a href="/2016/10/29/自饮故乡酒-未尽故乡情/" rel="next" title="自饮故乡酒,未尽故乡情">
+                <i class="fa fa-chevron-left"></i> 自饮故乡酒,未尽故乡情
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/01/01/今年，我决定谈谈游戏，谈谈计划。/" rel="prev" title="今年，我决定谈谈游戏，谈谈计划。">
-                今年，我决定谈谈游戏，谈谈计划。 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/02/25/1小时理解并总结iOS7-10推送通知流程/" rel="prev" title="理解并总结iOS7-10推送通知流程">
+                理解并总结iOS7-10推送通知流程 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -472,8 +470,7 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/12/22/1小时教你理解HTTP，TCP，UDP，Socket，WebSocket/"
-           data-title="1小时教你理解HTTP，TCP，UDP，Socket，WebSocket" data-url="http://yoursite.com/2016/12/22/1小时教你理解HTTP，TCP，UDP，Socket，WebSocket/">
+      <div class="ds-thread" data-thread-key="2016/12/22/1小时教你理解HTTP，TCP，UDP，Socket，WebSocket/" data-title="1小时教你理解HTTP，TCP，UDP，Socket，WebSocket" data-url="http://yoursite.com/2016/12/22/1小时教你理解HTTP，TCP，UDP，Socket，WebSocket/">
       </div>
     
   </div>
@@ -498,7 +495,7 @@
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -510,16 +507,14 @@
 
       <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.png"
-               alt="唐义" />
+          <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="唐义">
           <p class="site-author-name" itemprop="name">唐义</p>
           <p class="site-description motion-element" itemprop="description">一个喜欢文字的理工男，一个专注编程的程序员。</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -579,10 +574,10 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

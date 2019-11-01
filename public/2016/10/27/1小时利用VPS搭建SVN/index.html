@@ -6,15 +6,15 @@
 
 
 <html class="theme-next pisces use-motion">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -29,7 +29,7 @@
 
   
   
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -63,44 +63,39 @@
 
 
 
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="Hexo, NexT" />
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css">
 
 
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1">
 
 
 
 
 
 
-<meta name="description" content="SVN的搭建可以用独立主机安装，也可以apache为基础安装，以便于web访问，基于懒人的原则，本文介绍的是基于独立主机安装的。
-一、用途项目开发中，总会碰到需要回退版本或者打包阶段性版本的情况，公司的项目还好，可以利用公司的SVN或者git中进行管理，但如果是自己的项目，除了挂在github上进行版本管理，最方便的就是利用手头的VPS主机搭建一个私人的SVN了。
-二、安装环境下面是我的一些安装环">
+<meta name="description" content="SVN的搭建可以用独立主机安装，也可以apache为基础安装，以便于web访问，基于懒人的原则，本文介绍的是基于独立主机安装的。 一、用途项目开发中，总会碰到需要回退版本或者打包阶段性版本的情况，公司的项目还好，可以利用公司的SVN或者git中进行管理，但如果是自己的项目，除了挂在github上进行版本管理，最方便的就是利用手头的VPS主机搭建一个私人的SVN了。 二、安装环境下面是我的一些安装环">
 <meta property="og:type" content="article">
 <meta property="og:title" content="1小时利用VPS搭建SVN">
 <meta property="og:url" content="http://yoursite.com/2016/10/27/1小时利用VPS搭建SVN/index.html">
 <meta property="og:site_name" content="唐义的记录博客">
-<meta property="og:description" content="SVN的搭建可以用独立主机安装，也可以apache为基础安装，以便于web访问，基于懒人的原则，本文介绍的是基于独立主机安装的。
-一、用途项目开发中，总会碰到需要回退版本或者打包阶段性版本的情况，公司的项目还好，可以利用公司的SVN或者git中进行管理，但如果是自己的项目，除了挂在github上进行版本管理，最方便的就是利用手头的VPS主机搭建一个私人的SVN了。
-二、安装环境下面是我的一些安装环">
+<meta property="og:description" content="SVN的搭建可以用独立主机安装，也可以apache为基础安装，以便于web访问，基于懒人的原则，本文介绍的是基于独立主机安装的。 一、用途项目开发中，总会碰到需要回退版本或者打包阶段性版本的情况，公司的项目还好，可以利用公司的SVN或者git中进行管理，但如果是自己的项目，除了挂在github上进行版本管理，最方便的就是利用手头的VPS主机搭建一个私人的SVN了。 二、安装环境下面是我的一些安装环">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1723686-33312aa7a0604570.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-03-03T01:15:29.000Z">
+<meta property="og:updated_time" content="2017-03-02T12:53:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="1小时利用VPS搭建SVN">
-<meta name="twitter:description" content="SVN的搭建可以用独立主机安装，也可以apache为基础安装，以便于web访问，基于懒人的原则，本文介绍的是基于独立主机安装的。
-一、用途项目开发中，总会碰到需要回退版本或者打包阶段性版本的情况，公司的项目还好，可以利用公司的SVN或者git中进行管理，但如果是自己的项目，除了挂在github上进行版本管理，最方便的就是利用手头的VPS主机搭建一个私人的SVN了。
-二、安装环境下面是我的一些安装环">
+<meta name="twitter:description" content="SVN的搭建可以用独立主机安装，也可以apache为基础安装，以便于web访问，基于懒人的原则，本文介绍的是基于独立主机安装的。 一、用途项目开发中，总会碰到需要回退版本或者打包阶段性版本的情况，公司的项目还好，可以利用公司的SVN或者git中进行管理，但如果是自己的项目，除了挂在github上进行版本管理，最方便的就是利用手头的VPS主机搭建一个私人的SVN了。 二、安装环境下面是我的一些安装环">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1723686-33312aa7a0604570.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -122,7 +117,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/10/27/1小时利用VPS搭建SVN/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/10/27/1小时利用VPS搭建SVN/">
 
   <title> 1小时利用VPS搭建SVN | 唐义的记录博客 </title>
 </head>
@@ -172,7 +167,7 @@
   
 
   <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
+    <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
       <span class="site-title">唐义的记录博客</span>
       <span class="logo-line-after"><i></i></span>
@@ -199,7 +194,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -209,7 +204,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -219,7 +214,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -281,7 +276,7 @@
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
               &nbsp; | &nbsp;
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -342,35 +337,35 @@
 <li><p><strong>2、安装SVN</strong></p>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install subversion</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install subversion</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <ul>
 <li><strong>3、创建SVN版本库</strong></li>
 </ul>
 <p>随便找个自己习惯的路径建立版本库，本文使用usr/local路径。<br>在usr/local文件夹下新建svn文件夹</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkdir svn</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir svn</span><br></pre></td></tr></table></figure>
 <p>建立工程文件夹，project随意取名。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">svnadmin create /usr/local/svn/project</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svnadmin create /usr/local/svn/project</span><br></pre></td></tr></table></figure>
 <ul>
 <li><strong>4、修改svnserve.conf文件</strong></li>
 </ul>
 <p>打开下面的三行注释。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">anon-access = read</div><div class="line">auth-access = write</div><div class="line">password-db = passwd</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">anon-access = read</span><br><span class="line">auth-access = write</span><br><span class="line">password-db = passwd</span><br></pre></td></tr></table></figure>
 <p><em>注意：默认无用户名认证登录的也会有只读权限，建议将anon-access 设为 none，禁止访问。</em></p>
 <ul>
 <li><strong>5、修改authz文件</strong></li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[groups]</div><div class="line">group1 = test1，test2，test3 </div><div class="line">[/foo/bar]</div><div class="line">test1 = rw</div><div class="line">test2 = r</div><div class="line">* =</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[groups]</span><br><span class="line">group1 = test1，test2，test3 </span><br><span class="line">[/foo/bar]</span><br><span class="line">test1 = rw</span><br><span class="line">test2 = r</span><br><span class="line">* =</span><br></pre></td></tr></table></figure>
 <p>创建一个名为group1的组，并指定三个用户test1，test2，test3。test1可读可写，test2仅读，test3和其他用户无任何权限。结合里面原有的注释应该很好理解。</p>
 <ul>
 <li><strong>6、修改passwd文件</strong></li>
 </ul>
 <p>创建或修改用户密码。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[users]</div><div class="line">test1 = 123456</div><div class="line">test2 = 123456</div><div class="line">test3 = 123456</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[users]</span><br><span class="line">test1 = 123456</span><br><span class="line">test2 = 123456</span><br><span class="line">test3 = 123456</span><br></pre></td></tr></table></figure>
 <ul>
 <li><strong>7、启动SVN服务</strong></li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">svnserve -d -r /usr/local/svn</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svnserve -d -r /usr/local/svn</span><br></pre></td></tr></table></figure>
 <p>要设置开机启动的话就编辑/etc/rc.local文件，将上条命令添加进去就OK了。</p>
 <ul>
 <li><strong>8、访问SVN</strong></li>
@@ -441,8 +436,7 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/10/27/1小时利用VPS搭建SVN/"
-           data-title="1小时利用VPS搭建SVN" data-url="http://yoursite.com/2016/10/27/1小时利用VPS搭建SVN/">
+      <div class="ds-thread" data-thread-key="2016/10/27/1小时利用VPS搭建SVN/" data-title="1小时利用VPS搭建SVN" data-url="http://yoursite.com/2016/10/27/1小时利用VPS搭建SVN/">
       </div>
     
   </div>
@@ -467,7 +461,7 @@
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -479,16 +473,14 @@
 
       <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.png"
-               alt="唐义" />
+          <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="唐义">
           <p class="site-author-name" itemprop="name">唐义</p>
           <p class="site-description motion-element" itemprop="description">一个喜欢文字的理工男，一个专注编程的程序员。</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -548,10 +540,10 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
